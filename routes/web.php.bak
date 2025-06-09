@@ -1,0 +1,19 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// ... (Route lain mungkin ada di sini, seperti route lalai '/')
+
+// Daftarkan semua route standard untuk ItemController
+// Route resource untuk items di sini...
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LocationController;
+
+Route::resource('items', ItemController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('locations', LocationController::class);
