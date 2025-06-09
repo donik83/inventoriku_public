@@ -1,0 +1,20 @@
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+body {
+    /* Padding untuk navbar fixed-top (dari sebelumnya) */
+    padding-top: 40px; /* Laraskan jika perlu */
+
+    /* Padding BARU untuk action bar fixed-bottom */
+    padding-bottom: 120px; /* Anggaran, laraskan ikut ketinggian sebenar bar butang Tuan */
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05); /* Warna latar belakang hover lembut */
+}
+/*
+ * Letak kod CSS atau SCSS Tuan yang lain di bawah baris import ini jika ada.
+ * Pastikan semua baris @source dan blok @theme sudah dipadam.
+ */

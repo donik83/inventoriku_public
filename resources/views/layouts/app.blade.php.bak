@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> {{-- Guna locale aplikasi --}}
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- Tajuk halaman dinamik: Guna 'yield' dengan nilai lalai --}}
+    <title>@yield('title', 'Sistem Inventori Keluarga')</title>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Tempat untuk CSS spesifik halaman (jika perlu nanti) --}}
+    @stack('styles')
+</head>
+<body>
+    {{-- Bahagian Navigasi Mudah --}}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route('items.index') }}">InventoriKu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('items.index') }}">Senarai Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Urus Kategori</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('locations.index') }}">Urus Lokasi</a></li>
+                    {{-- Tambah pautan lain jika perlu --}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{-- Container utama untuk kandungan halaman --}}
+    <main class="container mt-4">
+        {{-- Paparan Mesej Sesi --}}
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        {{-- Kandungan Utama --}}
+        @yield('content')
+    </main>
+
+    {{-- Tempat untuk Skrip JS spesifik halaman (jika perlu nanti) --}}
+    @stack('scripts')
+
+</body>
+</html>
